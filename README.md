@@ -44,17 +44,17 @@ Four different classification techniques were used to determine this
 - SVC
 
 Different hyperparameters were tried with each model. Best parameters for each model are as follows:
-{'knn__n_neighbors': 7}
-{'logisticregression__C': 0.1}
-{'svc__C': 0.1, 'svc__kernel': 'linear'}
-{'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 5, 'decisiontreeclassifier__max_features': 'log2'}
+- {'knn__n_neighbors': 7}
+- {'logisticregression__C': 0.1}
+- {'svc__C': 0.1, 'svc__kernel': 'linear'}
+- {'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 5, 'decisiontreeclassifier__max_features': 'log2'}
 
 The accompanied jupyter notebook carries details of each model and their feature importance. For decisionTreeClassifier, following are the top factors that influence the resignation variable
-Training_Hours    0.240436
-Age    0.122104
-Monthly_Salary    0.075800
-Years_At_Company    0.075114
-Performance_Score    0.071691
-Overtime_Hours    0.071341
+- Training_Hours    0.240436
+- Age    0.122104
+- Monthly_Salary    0.075800
+- Years_At_Company    0.075114
+- Performance_Score    0.071691
+- Overtime_Hours    0.071341
 
 
