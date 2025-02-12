@@ -14,6 +14,8 @@ Ensuring my team’s productivity and keeping employees motivated is a crucial r
 ## Expected Outcomes  
 Through this project, I hope to gain insights that can be applied in my workplace, using similar modeling techniques to enhance decision-making and achieve my goals as a manager.  
 
+## Jupyter Notebook
+The [notebook](employee.ipynb) contains the code and analysis for the [dataset](data/employee.csv)
 
 ## Data Source
 https://www.kaggle.com/datasets/mexwell/employee-performance-and-productivity-data?resource=download
