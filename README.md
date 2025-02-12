@@ -37,7 +37,7 @@ The dataset provides data on employee demographics and performance. The key colu
 - Resigned: Boolean value indicating if the employee has resigned.
 
 
-## Question 1 - What factors influence an employee's decision to resign
+## Goal 1 - What factors influence an employee's decision to resign
 
 Four different classification techniques were used to determine this
 - DecisionTreeClassifier
@@ -49,14 +49,42 @@ Different hyperparameters were tried with each model. Best parameters for each m
 - {'knn__n_neighbors': 7}
 - {'logisticregression__C': 0.1}
 - {'svc__C': 0.1, 'svc__kernel': 'linear'}
-- {'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 5, 'decisiontreeclassifier__max_features': 'log2'}
+- {'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 5, 'decisiontreeclassifier__max_features': 'sqrt'}
 
 The accompanied jupyter notebook carries details of each model and their feature importance. For decisionTreeClassifier, following are the top factors that influence the resignation variable
-- Training_Hours    0.240436
-- Age    0.122104
-- Monthly_Salary    0.075800
-- Years_At_Company    0.075114
-- Performance_Score    0.071691
-- Overtime_Hours    0.071341
+- Overtime_Hours    0.195492
+- Training_Hours    0.153816
+- Age    0.124334
+- Work_Hours_Per_Week    0.097065
+- Sick_Days    0.076262
+- Remote_Work_Frequency    0.061340
+- Employee_Satisfaction_Score    0.058778
 
+## Goal 2 - What factors influence the perfomance_score of employees
+
+Classification technique was used to determine most important factors that determine employee performance data. Based on decision tree classification, following top factors were computed
+- Employee_Satisfaction_Score    0.120872
+- Training_Hours    0.118766
+- Age    0.099242
+
+Few others that were significant contributors are Projects_Handled and Team_Size. Focusing on these parameters will help managers in improving the performance of their employees
+
+
+## Goal 3 - Calculate monthly salary for employees
+In this exercise, parameters like performance_score and Job_Title were chosen to determine the ideal monthly salary for all employees. This allows a manager to determine employees that are underpaid. Improving monthly salary helps in retention of the employee as seen in result of Goal #1
+
+Regression Models were used for this analysis. Linear regression had a high MSE and resulted in following coefficients
+                       **feature        coef**
+-              Performance_Score  405.627720
+-                      Job_Title  951.119420
+-    Performance_Score Job_Title  131.433613
+-                    Job_Title^2  -73.737564
+-  Performance_Score Job_Title^2  -23.535533
+-                    Job_Title^3  -17.539578
+
+## Summary
+
+The Kaggle dataset utilized in this project offers valuable insights into various factors influencing employee productivity and retention likelihood. Furthermore, this data can be leveraged to ensure that employees receive fair compensation based on their performance and job responsibilities.  
+
+The findings from this analysis are applicable across organizations with a substantial workforce, providing a data-driven approach to workforce management. As a manager, these techniques can be adapted to relevant data within my organization, enabling more effective team management and facilitating the achievement of organizational objectives.  
 
