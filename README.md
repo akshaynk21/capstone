@@ -74,6 +74,7 @@ Few others that were significant contributors are Projects_Handled and Team_Size
 In this exercise, parameters like performance_score and Job_Title were chosen to determine the ideal monthly salary for all employees. This allows a manager to determine employees that are underpaid. Improving monthly salary helps in retention of the employee as seen in result of Goal #1
 
 Regression Models were used for this analysis. Linear regression had a high MSE and resulted in following coefficients
+
                        **feature        coef**
 -              Performance_Score  405.627720
 -                      Job_Title  951.119420
