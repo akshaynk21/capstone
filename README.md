@@ -75,13 +75,13 @@ In this exercise, parameters like performance_score and Job_Title were chosen to
 
 Regression Models were used for this analysis. Linear regression had a high MSE and resulted in following coefficients
 
-                       **feature        coef**
--              Performance_Score  405.627720
--                      Job_Title  951.119420
--    Performance_Score Job_Title  131.433613
--                    Job_Title^2  -73.737564
--  Performance_Score Job_Title^2  -23.535533
--                    Job_Title^3  -17.539578
+**feature        coef**
+- Performance_Score  405.627720
+- Job_Title  951.119420
+- Performance_Score Job_Title  131.433613
+- Job_Title^2  -73.737564
+- Performance_Score Job_Title^2  -23.535533
+- Job_Title^3  -17.539578
 
 ## Summary
 
