@@ -8,14 +8,11 @@ Ensuring my team’s productivity and keeping employees motivated is a crucial r
 
 ### Key Research Questions  
 - **Employee Resignation Prediction:** Use classification techniques to identify key factors influencing an employee’s decision to resign.  
-- **Performance Evaluation:** Apply classification models to assess employee performance scores.  
 - **Salary Prediction:** Determine the ideal monthly salary for an employee based on performance scores and other factors such as job title and years of experience.  
 
 ## Expected Outcomes  
 Through this project, I hope to gain insights that can be applied in my workplace, using similar modeling techniques to enhance decision-making and achieve my goals as a manager.  
 
-## Jupyter Notebook
-The [notebook](employee.ipynb) contains the code and analysis for the [dataset](data/employee.csv)
 
 ## Data Source
 https://www.kaggle.com/datasets/mexwell/employee-performance-and-productivity-data?resource=download
@@ -35,57 +32,74 @@ The dataset provides data on employee demographics and performance. The key colu
 - Promotions: Number of promotions received during their tenure.
 - Employee_Satisfaction_Score: Employee satisfaction rating (1.0 to 5.0 scale).
 - Resigned: Boolean value indicating if the employee has resigned.
+<br/>
+<br/>
 
 
-## Goal 1 - What factors influence an employee's decision to resign
+## Techniques Used
+- First the dataset was sanitized. Outliers were removed.
+- Some basic plotting was done to determine the correlation of various columns. This helped gained some insights into the dataset
 
-Four different classification techniques were used to determine this
-- DecisionTreeClassifier
-- KNN
-- LogisticRegression
-- SVC
+- To determine the resignation outcome, a few classification models are used like LogisticRegression, DecisionTree, KNN and RandomForest
+- Accuracy score for each model and its training time is extracted. GridSearchCV is used to determine the best hyper-parameters for each model. 
+- RandomForest had the highest score and was used for further analysis. Accuracy score is 0.9
+- Factors that affect the classification the most are determined using Feature Importances. These are summarized in a report at the end of the notebook.
 
-Different hyperparameters were tried with each model. Best parameters for each model are as follows:
-- {'knn__n_neighbors': 7}
-- {'logisticregression__C': 0.1}
-- {'svc__C': 0.1, 'svc__kernel': 'linear'}
-- {'decisiontreeclassifier__criterion': 'entropy', 'decisiontreeclassifier__max_depth': 5, 'decisiontreeclassifier__max_features': 'sqrt'}
+- To make the salary prediction, a few regression models are used like LinearRegression, DecisionTree, KNN and Ridge.
+- GridSearchCV is used to determine the best hyper-parameters for each model.
+- VotingRegressor is used at the end to combine the best of all models
+- Root Mean Square error is calculated and a plot of predicted vs actual values for salary is plotted. RMSE is 124
+- Factors affecting salary the most are derived from the votingRegressor model. These factors are summarized in a report at the end of the notebook
 
-The accompanied jupyter notebook carries details of each model and their feature importance. For decisionTreeClassifier, following are the top factors that influence the resignation variable
-- Overtime_Hours    0.195492
-- Training_Hours    0.153816
-- Age    0.124334
-- Work_Hours_Per_Week    0.097065
-- Sick_Days    0.076262
-- Remote_Work_Frequency    0.061340
-- Employee_Satisfaction_Score    0.058778
+## Summary - Business report
+# Summary Report: Employee Attrition and Salary Determination Analysis  
 
-## Goal 2 - What factors influence the perfomance_score of employees
+## Overview  
+In this exercise, we had 2 goals:
+- Determine factors affecting employees decision to resign
+- Determine ideal salary for all employees
+This report presents key findings from data analysis on employee attrition factors and salary determination. By leveraging predictive modeling, organizations can enhance employee retention, ensure fair compensation, and improve overall workforce productivity.  
 
-Classification technique was used to determine most important factors that determine employee performance data. Based on decision tree classification, following top factors were computed
-- Employee_Satisfaction_Score    0.120872
-- Training_Hours    0.118766
-- Age    0.099242
+## Key Findings
+A curated dataset was used to model various machine learning techniques. The dataset was cleaned, refined and then analyzed to determine the most important factors in employee attrition and salary determination analysis.
 
-Few others that were significant contributors are Projects_Handled and Team_Size. Focusing on these parameters will help managers in improving the performance of their employees
+### Employee Attrition Factors  
+Analysis using a random forest classification model identified the following critical factors influencing employee resignation:  
 
+- **Employee Satisfaction Score**  
+- **Overtime Hours**  
+- **Team Size**  
+- **Education Level**  
+- **Remote Work Frequency**  
 
-## Goal 3 - Calculate monthly salary for employees
-In this exercise, parameters like performance_score and Job_Title were chosen to determine the ideal monthly salary for all employees. This allows a manager to determine employees that are underpaid. Improving monthly salary helps in retention of the employee as seen in result of Goal #1
+### Salary Determination Factors  
+A linear regression model was applied to analyze salary determinants, identifying:  
 
-Regression Models were used for this analysis. Linear regression had a high MSE and resulted in following coefficients
+- **Performance Score**  
+- **Job Title**  
 
-**feature        coef**
-- Performance_Score  405.627720
-- Job_Title  951.119420
-- Performance_Score Job_Title  131.433613
-- Job_Title^2  -73.737564
-- Performance_Score Job_Title^2  -23.535533
-- Job_Title^3  -17.539578
+The model predicted salary with a root mean squared error (RMSE) of **124**, ensuring a data-driven approach to fair compensation.  
 
-## Summary
+## Recommendations  
 
-The Kaggle dataset utilized in this project offers valuable insights into various factors influencing employee productivity and retention likelihood. Furthermore, this data can be leveraged to ensure that employees receive fair compensation based on their performance and job responsibilities.  
+### Reducing Employee Attrition  
+To enhance employee retention, management should:  
 
-The findings from this analysis are applicable across organizations with a substantial workforce, providing a data-driven approach to workforce management. As a manager, these techniques can be adapted to relevant data within my organization, enabling more effective team management and facilitating the achievement of organizational objectives.  
+1. **Monitor Employee Satisfaction Scores** – Conduct regular surveys and implement targeted retention strategies.  
+2. **Manage Overtime Hours** – Distribute workloads effectively to prevent burnout.  
+3. **Optimize Team Sizes** – Ensure team structures support productivity and employee well-being.  
+4. **Evaluate Remote Work Policies** – Implement flexible work arrangements based on employee needs.  
+5. **Use Predictive Modeling** – Identify at-risk employees and proactively address retention issues.  
+
+### Ensuring Fair Compensation  
+To maintain a competitive and equitable salary structure, HR should:  
+
+1. **Use Data-Driven Salary Benchmarking** – Identify employees earning below the predicted range.  
+2. **Adjust Compensation Accordingly** – Ensure fair and just rewards for all employees.  
+3. **Enhance Employee Motivation** – Fair salaries improve morale, retention, and productivity.  
+4. **Regularly Review Salary Structures** – Align compensation with market trends and performance metrics.  
+
+## Conclusion  
+By leveraging data-driven insights, organizations can reduce employee attrition, ensure fair compensation, and foster a motivated, productive workforce. Implementing these strategies will lead to long-term business success and employee satisfaction.  
+
 
